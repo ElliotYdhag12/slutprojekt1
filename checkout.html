@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="main-nav-left">
+            <a href="index.html"><h1>LOGO</h1></a>
+        </div>
+        <div class="main-nav-middle">
+            <div class="search-field-wrapper">
+                <input type="text" class="search-field-input" placeholder="Search...">
+                <button class="search-field-button"><img src="icons/search.png" alt="search"></button>
+            </div>
+        </div>
+        <div class="main-nav-right">
+            <ul>
+                <a href="index.html"><li>Home</li></a>
+                <a href="aboutus.html"><li>About Us</li></a>
+                <a href="contact.html"><li>Contact</li></a>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h1>Checkout</h1>
+            </div>
+            
+            <p id="checkout-product-details"></p>
+            
+            <div class="express-checkout">
+                <button class="express-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                    PayPal
+                </button>
+                <button class="express-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay">
+                    Apple Pay
+                </button>
+            </div>
+            
+            <div class="divider"></div>
+
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="card-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Cardholder Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+
+                <button type="submit">Complete Payment</button>
+            </form>
+
+            <div class="secure-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Secure Checkout - All payments are encrypted
+            </div>
+
+            <a href="javascript:history.back()" class="back-link">← Return to Shopping</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Our Store. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('name');
+    const productPrice = urlParams.get('price');
+    const quantity = urlParams.get('quantity');
+
+    document.getElementById('checkout-product-details').innerText = 
+        `You are buying ${quantity}x ${decodeURIComponent(productName)} for a total of ${(parseFloat(productPrice) * parseInt(quantity)).toFixed(2)}Kr`;
+
+    document.getElementById('payment-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        const cardNumber = document.getElementById('card-number').value.replace(/\s+/g, '');
+        const expiry = document.getElementById('expiry').value;
+        const cvv = document.getElementById('cvv').value;
+
+        // Validate card details
+        const cardType = getCardType(cardNumber);
+        const isValid = validateLuhn(cardNumber);
+
+        if (!isValid) {
+            alert("Invalid credit card number!");
+            return;
+        }
+
+        if (!cardType) {
+            alert("Unsupported card type!");
+            return;
+        }
+
+        if (!validateExpiry(expiry)) {
+            alert("Invalid expiry date! Use MM/YY format.");
+            return;
+        }
+
+        if (!/^\d{3,4}$/.test(cvv)) {
+            alert("Invalid CVV! Must be 3 or 4 digits.");
+            return;
+        }
+
+        alert(`Payment processed successfully! Card Type: ${cardType}`);
+        window.location.href = "success.html";
+    });
+
+    function getCardType(number) {
+        const patterns = {
+            "Visa": /^4\d{12,18}$/,
+            "MasterCard": /^(5[1-5]\d{14}|2[2-7]\d{14})$/,
+            "American Express": /^3[47]\d{13}$/,
+            "Discover": /^6(?:011|5\d{2})\d{12}$/
+        };
+
+        for (const [card, pattern] of Object.entries(patterns)) {
+            if (pattern.test(number)) return card;
+        }
+        return null;
+    }
+
+    function validateLuhn(number) {
+        let sum = 0;
+        let alternate = false;
+        for (let i = number.length - 1; i >= 0; i--) {
+            let n = parseInt(number[i]);
+            if (alternate) {
+                n *= 2;
+                if (n > 9) n -= 9;
+            }
+            sum += n;
+            alternate = !alternate;
+        }
+        return sum % 10 === 0;
+    }
+
+    function validateExpiry(expiry) {
+        const match = expiry.match(/^(\d{2})\/(\d{2})$/);
+        if (!match) return false;
+
+        const month = parseInt(match[1], 10);
+        const year = parseInt(match[2], 10) + 2000;
+        const now = new Date();
+        const expDate = new Date(year, month);
+
+        return month >= 1 && month <= 12 && expDate > now;
+    }
+});
+
+    </script>
+</body>
+</html>
+

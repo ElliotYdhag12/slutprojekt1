@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/product.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="main-nav-left">
+            <a href="index.html"><h1>LOGO</h1></a>
+        </div>
+        <div class="main-nav-middle">
+            <div class="search-field-wrapper">
+                <input type="text" class="search-field-input" placeholder="Search...">
+                <button class="search-field-button"><img src="icons/search.png" alt="search"></button>
+            </div>
+        </div>
+        <div class="main-nav-right">
+            <ul>
+                <a href="index.html"><li>Home</li></a>
+                <a href="aboutus.html"><li>About Us</li></a>
+                <a href="contact.html"><li>Contact</li></a>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="product-detail">
+        <div class="product-wrapper">
+            <div class="product-wrapper-top">
+                <div class="product-img-container-button-div">
+                    <button id="left-img-btn">←</button>
+                </div>
+                <div class="product-img-container">
+                    <img id="product-img" class="product-img">
+                </div>
+                <div class="product-img-container-button-div">
+                    <button id="right-img-btn">→</button>
+                </div>
+            </div>
+            <div class="product-wrapper-bottom">
+                <div class="product-wrapper-bottom-top">
+                    <h1 id="product-name"></h1>
+                    <h4 id="product-price"></h4>
+                    <div class="product-desc-div">
+                        <p id="product-desc"></p>
+                    </div>
+                </div>
+                <form class="product-wrapper-bottom-bottom">
+                    <input type="number" class="product-wrapper-bottom-bottom-input" id="product-wrapper-bottom-bottom-input" value="1">
+                    <button type="submit" class="product-wrapper-bottom-bottom-input" id="buy-btn">Buy 1 Item</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Our Store. All Rights Reserved.</p>
+    </footer>
+    <script src="js/displayProductInfo.js"></script>
+</body>
+</html>

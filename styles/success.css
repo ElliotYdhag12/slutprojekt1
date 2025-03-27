@@ -1,0 +1,263 @@
+        /* Success Page Styles */
+        body {
+            font-family: "Roboto", "Arial", sans-serif;
+            background-color: var(--background-color, #f9f9f9);
+            color: var(--main-text-color, #333);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+          }
+          
+          .success-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 3rem 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .success-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--main-color, #2a2a2a), var(--secondary-color, #4a4a4a));
+          }
+          
+          .success-icon-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 2rem;
+            background-color: var(--light-background, #f8f8f8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+          }
+          
+          .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--success-color, #4caf50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scale-in 0.5s ease-out;
+          }
+          
+          .success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw 1s ease forwards 0.3s;
+          }
+          
+          .success-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--main-text-color, #333);
+            animation: fade-in 0.8s ease-out;
+          }
+          
+          .success-message {
+            font-size: 1.1rem;
+            color: var(--secondary-text-color, #666);
+            max-width: 450px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            animation: fade-in 1s ease-out 0.3s both;
+          }
+          
+          .order-details {
+            background-color: var(--light-background, #f8f8f8);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            animation: slide-up 0.8s ease-out 0.5s both;
+          }
+          
+          .order-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--main-text-color, #333);
+          }
+          
+          .order-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+          }
+          
+          .order-info-item {
+            margin-bottom: 0.8rem;
+          }
+          
+          .order-info-label {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color, #666);
+            margin-bottom: 0.2rem;
+          }
+          
+          .order-info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--main-text-color, #333);
+          }
+          
+          .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fade-in 1.2s ease-out 0.8s both;
+          }
+          
+          .home-button {
+            display: inline-block;
+            background-color: var(--main-color, #2a2a2a);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .home-button:hover {
+            background-color: var(--secondary-color, #4a4a4a);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+          }
+          
+          .order-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--main-color, #2a2a2a);
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color, #ddd);
+          }
+          
+          .order-button:hover {
+            background-color: var(--light-background, #f8f8f8);
+            border-color: var(--main-color, #2a2a2a);
+          }
+          
+          .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--confetti-colors);
+            opacity: 0;
+            animation: confetti-fall 3s ease-out forwards;
+          }
+          
+          /* Animations */
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+            }
+            70% {
+              box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+          }
+          
+          @keyframes scale-in {
+            0% {
+              transform: scale(0);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          
+          @keyframes draw {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+          
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          
+          @keyframes slide-up {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          @keyframes confetti-fall {
+            0% {
+              opacity: 1;
+              top: -10px;
+              transform: translateX(0) rotateZ(0deg);
+            }
+            100% {
+              opacity: 0;
+              top: 400px;
+              transform: translateX(100px) rotateZ(90deg);
+            }
+          }
+          
+          /* Responsive styles */
+          @media (max-width: 768px) {
+            .success-container {
+              margin: 2rem 1rem;
+              padding: 2rem 1.5rem;
+            }
+          
+            .success-title {
+              font-size: 1.8rem;
+            }
+          
+            .success-message {
+              font-size: 1rem;
+            }
+          
+            .order-info {
+              grid-template-columns: 1fr;
+            }
+          
+            .action-buttons {
+              flex-direction: column;
+              gap: 0.8rem;
+            }
+          
+            .home-button,
+            .order-button {
+              width: 100%;
+              text-align: center;
+            }
+          }
