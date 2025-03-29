@@ -93,6 +93,10 @@ body {
   filter: brightness(0) invert(1)!important;
 }
 
+.search-field-button:hover img {
+  content: url("icons/searchHover.png");
+}
+
 .main-nav-right {
   flex: 1!important;
   display: flex!important;

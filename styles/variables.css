@@ -1,13 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
-    --main-color: #5FA086;
-    --secondary-color: #2f6a81;
-    --accent-color: #5F99A0;
+    /* Primary Brand Colors */
+    --main-color: #556B7F;
+    --secondary-color: #7A8C9C;
+    --primary-color: #3D4E5D;
     
-
-    --main-text-color: #000;
-    --secondary-text-color: #06202a;
-
-    --main-shadow: 3px 3px 3px #000;
-}
+    /* Accent Colors */
+    --accent-color: #C2A792;
+    --accent-secondary: #A0B3C5;
+    
+    /* Background Colors */
+    --background-color: #F7F8FA;
+    --light-background: #FFFFFF;
+    --dark-background: #3D4E5D;
+    
+    /* Text Colors */
+    --main-text-color: #3D4E5D;
+    --secondary-text-color: #7A8C9C;
+    --light-text-color: #FFFFFF;
+    
+    /* Border & Divider Colors */
+    --border-color: #E5E8EC;
+    --divider-color: #EFF1F5;
+    
+    /* Status Colors */
+    --success-color: #8ABEAA;
+    --warning-color: #D9C9A3;
+    --error-color: #C99A9A;
+    
+    /* Shadows */
+    --card-shadow: 0 5px 15px rgba(85, 107, 127, 0.06);
+    --hover-shadow: 0 15px 30px rgba(85, 107, 127, 0.1);
+    --input-shadow: 0 2px 8px rgba(85, 107, 127, 0.08);
+    
+    /* Gradients */
+    --main-gradient: linear-gradient(135deg, #556B7F 0%, #7A8C9C 100%);
+    --accent-gradient: linear-gradient(135deg, #C2A792 0%, #D5BFB0 100%);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }
