@@ -141,18 +141,18 @@ body {
 }
 
 #buy-btn {
-  background-color: var(--primary-color, #2a2a2a);
+  background-color: var(--accent-color, #2a2a2a);
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
   border: none;
   flex: 1;
   max-width: 300px;
 }
 
 #buy-btn:hover {
-  background-color: var(--secondary-color, #4a4a4a);
+  background: var(--accent-gradient);
+  transition: ease-in-out .2s;
 }
 
 /* Responsive Design */

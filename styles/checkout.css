@@ -106,7 +106,7 @@ body {
   }
   
   #payment-form button[type="submit"] {
-    background-color: var(--main-color, #2a2a2a);
+    background-color: var(--accent-color, #2a2a2a);
     color: white;
     border: none;
     padding: 0.9rem;
@@ -114,16 +114,16 @@ body {
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s;
     margin-top: 0.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
   }
   
   #payment-form button[type="submit"]:hover {
-    background-color: var(--secondary-color, #4a4a4a);
+    background: var(--accent-gradient);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: ease-in-out .2s;
   }
   
   #payment-form button[type="submit"]:active {

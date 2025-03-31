@@ -261,7 +261,7 @@ body {
   }
   
   .contact-form button {
-    background-color: var(--main-color, #2a2a2a);
+    background-color: var(--accent-color, #2a2a2a);
     color: white;
     border: none;
     padding: 1rem;
@@ -269,15 +269,15 @@ body {
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s;
     margin-top: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   .contact-form button:hover {
-    background-color: var(--secondary-color, #4a4a4a);
+    background: var(--accent-gradient, #4a4a4a);
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
   }
   
   .contact-form button:active {

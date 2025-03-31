@@ -40,7 +40,7 @@ body {
 }
 
 .main-nav-left h1 {
-  color: #fff!important;
+  color: var(--accent-color)!important;
   font-size: 1.8rem!important;
   font-weight: 700!important;
   letter-spacing: 0.5px!important;
@@ -93,10 +93,6 @@ body {
   filter: brightness(0) invert(1)!important;
 }
 
-.search-field-button:hover img {
-  content: url("icons/searchHover.png");
-}
-
 .main-nav-right {
   flex: 1!important;
   display: flex!important;
@@ -117,6 +113,8 @@ body {
   font-weight: 500!important;
   transition: color 0.2s!important;
   position: relative!important;
+  overflow-y: hidden;
+  max-height: auto;
 }
 
 .main-nav-right ul li:hover {
@@ -306,12 +304,6 @@ body {
     flex: 0 0 50%;
   }
   
-  .main-nav-middle {
-    flex: 0 0 100%;
-    order: 3;
-    margin-top: 1rem;
-  }
-  
   .product-view-wrapper {
     width: 95%;
   }
@@ -353,34 +345,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .main-nav {
-    padding: 0.8rem;
-  }
-  
-  .mobile-menu-button {
-    display: block;
-  }
-  
-  .main-nav-right {
-    display: none;
-  }
-  
-  .main-nav-right.active {
-    display: flex;
-    flex: 0 0 100%;
-    order: 4;
-    margin-top: 1rem;
-  }
-  
-  .main-nav-right.active ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .main-nav-right.active ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
   
   .product-view-bottom {
     grid-template-columns: 1fr;
