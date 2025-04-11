@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('product-price').textContent = decodeURIComponent(price);
     document.getElementById('product-desc').textContent = decodeURIComponent(desc);
 
+    //If images exists then displkay it and if multiple images then add them to an array.
     if (img) {
         const imgArray = JSON.parse(decodeURIComponent(img));
         let currentIndex = 0;
@@ -23,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const imgElement = document.getElementById('product-img');
             imgElement.src = imgArray[currentIndex];
         };
+
+        //array index changes based on what button you click
 
         leftImgBtn.addEventListener('click', function () {
             currentIndex = (currentIndex - 1 + imgArray.length) % imgArray.length;
@@ -37,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateImage();
     }
 
+    
     buyButton.addEventListener('click', function () {
         event.preventDefault();
         const selectedItems = numberOfItemsInput.value;
@@ -44,11 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please enter a valid number of items to buy.");
         }
         else {
+            //Redirect user to next page with information about the product and amount of products to buy 
             const checkoutUrl = `checkout.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(selectedItems)}`;
             window.location.href = checkoutUrl;
         }
     });
     
+    //Bug Checking Button
     numberOfItemsInput.addEventListener('input', function () {
         const numItems = numberOfItemsInput.value;
         

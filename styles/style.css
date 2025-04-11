@@ -246,23 +246,6 @@ body {
   flex-grow: 1;
 }
 
-/* Mobile Menu Button */
-.mobile-menu-button {
-  display: none;
-  background: none;
-  cursor: pointer;
-}
-
-.mobile-menu-button span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 5px 0;
-  border-radius: 3px;
-  transition: all 0.3s;
-}
-
   /* Footer */
   footer {
     background-color: var(--main-color, #2a2a2a);
